@@ -1,0 +1,15 @@
+{
+    "name": "Lim.InGameConsole.Demo",
+    "references": [
+        "GUID:be5a584f04d2642448701c5ae2385d3a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
