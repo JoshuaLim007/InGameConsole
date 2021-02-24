@@ -1,0 +1,17 @@
+{
+    "name": "Lim.IGCEditor",
+    "references": [
+        "GUID:be5a584f04d2642448701c5ae2385d3a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [
+        "WebGL"
+    ],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
