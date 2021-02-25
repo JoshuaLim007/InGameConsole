@@ -116,7 +116,7 @@ Contains all commands grouped by command class name then command method name.
 No as of now, you cannot change the looks except for the field sizes.
 #### Will the release/debug build contain the console?
 Yes of course. It will be automatically created.
-#### Will you on a date with me?
+#### Will you go on a date with me?
 **😳** jk. no one asks me that **😔**
 
 Created by Joshua Lim
