@@ -4,6 +4,20 @@ https://github.com/JoshuaLim007/InGameConsole
 
 # IGC for Unity
 created by Joshua Lim
+
+## Installation:
+
+Copy paste 
+>https://github.com/JoshuaLim007/InGameConsole
+
+in Unity's UPM "Add package from git URL".
+
+**OR**
+
+Download this onto your computer. And install it via local drive.
+https://docs.unity3d.com/Manual/upm-ui-local.html
+
+
 ## Getting started
 
 Go to the top of the Unity window and navigate to **InGameConsole -> InGameConsoleManager**
