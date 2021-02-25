@@ -11,6 +11,7 @@ Copy this git URL:
 >https://github.com/JoshuaLim007/InGameConsole
 
 and paste it into Unity's UPM "Add package from git URL".
+https://docs.unity3d.com/Manual/upm-ui-giturl.html
 
 **OR**
 
