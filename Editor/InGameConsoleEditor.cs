@@ -32,6 +32,7 @@ namespace Lim.GameEditor
         private const string consolePath = "Packages/com.limjoshua.igconsole/Console/InGameConsole.prefab";
         private Scene previousScene, currentScene;
         private int delayer;
+        static Vector2 scrollPos;
 
         [InitializeOnLoadMethod]
         static void OnReload()
@@ -146,7 +147,7 @@ namespace Lim.GameEditor
             EditorGUILayout.LabelField("Assemblies: ", EditorStyles.boldLabel);
             GetAssemblies(prefab);
             var enabledAssemblies = new List<string>();
-
+            scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(512), GUILayout.Height(256));
             for (int i = 0; i < assemblies.Count; i++)
             {
                 EditorGUILayout.LabelField(assemblies[i].AssemblyName);
@@ -157,7 +158,7 @@ namespace Lim.GameEditor
                     enabledAssemblies.Add(assemblies[i].AssemblyName);
                 }
             }
-
+            EditorGUILayout.EndScrollView();
 
             if (preview)
             {
