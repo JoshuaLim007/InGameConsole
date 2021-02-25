@@ -7,10 +7,10 @@ created by Joshua Lim
 
 ## Installation:
 
-Copy paste 
+Copy this git URL:
 >https://github.com/JoshuaLim007/InGameConsole
 
-in Unity's UPM "Add package from git URL".
+and paste it into Unity's UPM "Add package from git URL".
 
 **OR**
 
