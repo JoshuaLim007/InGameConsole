@@ -97,7 +97,6 @@ No as of now, you cannot change the looks except for the field sizes.
 #### Will the release/debug build contain the console?
 Yes of course. It will be automatically created.
 #### Will you on a date with me?
-**😳** at later time.
-
+**😳** jk. no one asks me that **😔**
 
 Created by Joshua Lim
