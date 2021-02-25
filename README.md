@@ -32,7 +32,7 @@ public class TestScript{
 	}
 }
 ```
- **Calling Commands via IGC**
+ **Calling Commands via IGC:**
 Commands will be formatted in class to method name hiearchy. 
 
 For:
