@@ -8,6 +8,8 @@ created by Joshua Lim
 ## Important Notes!
 **Make sure you have TMPro installed and imported into your project! If not, Unity will freeze when you open the InGameConsole Manager**.
 
+**If you are using a custom assembly definition, make sure you reference Lim.InGameConsole.Core assembly**.
+
 ## Installation:
 
 Copy this git URL:
