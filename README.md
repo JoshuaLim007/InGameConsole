@@ -47,6 +47,11 @@ public class TestScript{
 	}
 }
 ```
+
+**Requirements**
+- Method must be static
+- Parameters must be a primative type
+
  **Calling Commands via IGC:**
 Commands will be formatted in class to method name hiearchy. 
 
