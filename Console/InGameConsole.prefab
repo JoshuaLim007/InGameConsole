@@ -628,10 +628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Trigger: 284
   InputParser: {fileID: 1402214669913167626}
-  AssemblyNames:
-  - Lim.IGCEditor
-  - Lim.InGameConsole.Demo
-  - Lim.InGameConsole
+  AssemblyNames: []
 --- !u!114 &1402214670112564457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,9 +642,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowPreview: 1
-  InputFieldSize: 47.7
-  SuggestionFieldSize: 70.7
-  HistoryFontSize: 47.4
+  InputFieldSize: 35
+  SuggestionFieldSize: 35
+  HistoryFontSize: 35
   CommandInputField: {fileID: 1402214670106720293}
   HistoryField: {fileID: 1402214670067936901}
   SuggestionsField: {fileID: 1402214670762440823}
