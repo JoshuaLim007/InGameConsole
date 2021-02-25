@@ -38,6 +38,7 @@ namespace Lim.InGameConsole
                 "\nVersion: " + Version +
                 "\nCreated by - Joshua Lim");
             Commands = new Dictionary<string, Dictionary<string, MethodInfo>>();
+            AssemblyNames.Add("Assembly-CSharp");
             assembliesToCheck.AddRange(AppDomain.CurrentDomain.GetAssemblies().Where(a => AssemblyNames.Contains(a.GetName().Name)).ToArray());
             foreach (var item in assembliesToCheck)
             {
