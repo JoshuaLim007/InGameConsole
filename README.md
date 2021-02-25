@@ -34,9 +34,9 @@ The console will be **automatically created** when you enter play mode; there is
 **Make sure all the assemblies with your console commands are checked in the settings!** This will allow the program to find your console commands in the assemblies.
 
 ### Controls
-- **Tab** will autofill the command
-- **Up/Down arrow keys** navigate through the console history
-- **F3** Default key to open console
+- **"Tab"** Autofill the command
+- **"Up/Down arrow keys"** Navigate through the console history
+- **"F3"** Default key to open console
 
 ## IGC documentation
 
