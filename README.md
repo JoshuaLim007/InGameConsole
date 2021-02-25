@@ -5,6 +5,9 @@ https://github.com/JoshuaLim007/InGameConsole
 # IGC for Unity
 created by Joshua Lim
 
+## Important Notes!
+-**Make sure you have TMPro and imported into your project! If not, Unity will freeze when you open the InGameConsole Manager**.
+
 ## Installation:
 
 Copy this git URL:
