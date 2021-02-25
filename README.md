@@ -6,7 +6,7 @@ https://github.com/JoshuaLim007/InGameConsole
 created by Joshua Lim
 
 ## Important Notes!
--**Make sure you have TMPro and imported into your project! If not, Unity will freeze when you open the InGameConsole Manager**.
+**Make sure you have TMPro installed and imported into your project! If not, Unity will freeze when you open the InGameConsole Manager**.
 
 ## Installation:
 
