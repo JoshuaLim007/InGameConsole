@@ -43,7 +43,7 @@ namespace Lim.GameEditor
             Flush();
             if (!Application.isPlaying)
             {
-                consolePrefab = GetUserDefinedPrefab(); // AssetDatabase.LoadAssetAtPath(consolePath, typeof(GameObject));
+                consolePrefab = GetUserDefinedPrefab();
 
                 if(consolePath != null)
                     GetSettings(consolePrefab);
@@ -78,6 +78,9 @@ namespace Lim.GameEditor
         void OnGUI()
         {
             SceneChange();
+
+
+
             if (!Application.isPlaying)
             {
                 if (consolePrefab != null)
@@ -198,8 +201,12 @@ namespace Lim.GameEditor
         {
             const string copyPath = "Assets/InGameConsoleAssets/";
             bool exists = AssetDatabase.IsValidFolder("InGameConsoleAssets");
-            var path = exists == false ? AssetDatabase.CreateFolder("Assets", "InGameConsoleAssets") : copyPath;
             var originalPrefab = GetOriginalPrefab();
+            if(originalPrefab == null)
+            {
+                return null;
+            }
+            var path = exists == false ? AssetDatabase.CreateFolder("Assets", "InGameConsoleAssets") : copyPath;
             var go = PrefabUtility.InstantiatePrefab(originalPrefab) as GameObject;
             var varientGo = PrefabUtility.SaveAsPrefabAsset(go, variantPath);
             DestroyImmediate(go);
@@ -218,7 +225,6 @@ namespace Lim.GameEditor
             }
             return consolePrefab;
         }
-
 
         static void GetAssemblies(GameObject prefab)
         {
@@ -264,7 +270,6 @@ namespace Lim.GameEditor
             if (consolePrefab == null)
             {
                 consolePrefab = GetUserDefinedPrefab();
-                //consolePrefab = AssetDatabase.LoadAssetAtPath(consolePath, typeof(GameObject));
             }
             Flush();
             if (consolePrefab != null)
