@@ -8,7 +8,7 @@ created by Joshua Lim
 ## Installation:
 
 Copy this git URL:
->https://github.com/JoshuaLim007/InGameConsole
+>https://github.com/JoshuaLim007/InGameConsole.git
 
 and paste it into Unity's UPM "Add package from git URL".
 https://docs.unity3d.com/Manual/upm-ui-giturl.html
