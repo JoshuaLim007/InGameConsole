@@ -29,7 +29,10 @@ namespace Lim.GameEditor
 
         private static UnityEngine.Object consolePrefab;
         private static GameObject inSceneConsole;
+
         private const string consolePath = "Packages/com.limjoshua.igconsole/Console/InGameConsole.prefab";
+        private const string variantPath = "Assets/InGameConsoleAssets/InGameConsole.prefab";
+
         private Scene previousScene, currentScene;
         private int delayer;
         static Vector2 scrollPos;
@@ -40,7 +43,8 @@ namespace Lim.GameEditor
             Flush();
             if (!Application.isPlaying)
             {
-                consolePrefab = AssetDatabase.LoadAssetAtPath(consolePath, typeof(GameObject));
+                consolePrefab = GetUserDefinedPrefab(); // AssetDatabase.LoadAssetAtPath(consolePath, typeof(GameObject));
+
                 if(consolePath != null)
                     GetSettings(consolePrefab);
             }
@@ -53,8 +57,9 @@ namespace Lim.GameEditor
             InGameConsoleEditor window =
                 (InGameConsoleEditor)EditorWindow.GetWindow(typeof(InGameConsoleEditor));
 
-            consolePrefab = AssetDatabase.LoadAssetAtPath(consolePath, typeof(GameObject));
-            if(consolePath != null)
+            //consolePrefab = AssetDatabase.LoadAssetAtPath(consolePath, typeof(GameObject));
+            consolePrefab = GetUserDefinedPrefab();
+            if (consolePath != null)
                 GetSettings(consolePrefab);
         }
 
@@ -64,7 +69,8 @@ namespace Lim.GameEditor
             if (Application.isPlaying)
             {
                 Flush();
-                consolePrefab = AssetDatabase.LoadAssetAtPath(consolePath, typeof(GameObject));
+                //consolePrefab = AssetDatabase.LoadAssetAtPath(consolePath, typeof(GameObject));
+                consolePrefab = GetUserDefinedPrefab();
                 Instantiate(consolePrefab);
             }
         }
@@ -139,6 +145,10 @@ namespace Lim.GameEditor
         static void SetSettings()
         {
             var prefab = consolePrefab as GameObject;
+            if (GUILayout.Button("Save"))
+            {
+                prefab = PrefabUtility.SavePrefabAsset(prefab);
+            }
             inputFieldSize = EditorGUILayout.FloatField("Input Field Size: ", inputFieldSize);
             suggFieldSize = EditorGUILayout.FloatField("Suggestion Field Size: ", suggFieldSize);
             historyFieldSize = EditorGUILayout.FloatField("History Field Size: ", historyFieldSize);
@@ -147,7 +157,7 @@ namespace Lim.GameEditor
             EditorGUILayout.LabelField("Assemblies: ", EditorStyles.boldLabel);
             GetAssemblies(prefab);
             var enabledAssemblies = new List<string>();
-            scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(512), GUILayout.Height(256));
+            scrollPos = EditorGUILayout.BeginScrollView(scrollPos, GUILayout.Width(512), GUILayout.Height(512));
             for (int i = 0; i < assemblies.Count; i++)
             {
                 EditorGUILayout.LabelField(assemblies[i].AssemblyName);
@@ -158,7 +168,6 @@ namespace Lim.GameEditor
                     enabledAssemblies.Add(assemblies[i].AssemblyName);
                 }
             }
-            EditorGUILayout.EndScrollView();
 
             if (preview)
             {
@@ -172,11 +181,7 @@ namespace Lim.GameEditor
 
             }
 
-            if(GUILayout.Button("Save"))
-            {
-                prefab = PrefabUtility.SavePrefabAsset(prefab);
-            }
-
+            EditorGUILayout.EndScrollView();
         }
 
         private void OnDisable()
@@ -187,6 +192,34 @@ namespace Lim.GameEditor
         {
             Flush();      
         }
+
+
+        private static Object CreatePrefabCopy()
+        {
+            const string copyPath = "Assets/InGameConsoleAssets/";
+            bool exists = AssetDatabase.IsValidFolder("InGameConsoleAssets");
+            var path = exists == false ? AssetDatabase.CreateFolder("Assets", "InGameConsoleAssets") : copyPath;
+            var originalPrefab = GetOriginalPrefab();
+            var go = PrefabUtility.InstantiatePrefab(originalPrefab) as GameObject;
+            var varientGo = PrefabUtility.SaveAsPrefabAsset(go, variantPath);
+            DestroyImmediate(go);
+            return varientGo;
+        }
+        private static Object GetOriginalPrefab()
+        {
+            return AssetDatabase.LoadAssetAtPath(consolePath, typeof(GameObject));
+        }
+        private static Object GetUserDefinedPrefab()
+        {
+            consolePrefab = AssetDatabase.LoadAssetAtPath(variantPath, typeof(GameObject));
+            if(consolePrefab == null)
+            {
+                consolePrefab = CreatePrefabCopy();
+            }
+            return consolePrefab;
+        }
+
+
         static void GetAssemblies(GameObject prefab)
         {
             assemblies = new List<AssemblyEnabled>();
@@ -228,9 +261,11 @@ namespace Lim.GameEditor
         }
         public static void CreateConsoleOnBuild(Scene scene)
         {
-            if(consolePrefab == null)
-                consolePrefab = AssetDatabase.LoadAssetAtPath(consolePath, typeof(GameObject));
-
+            if (consolePrefab == null)
+            {
+                consolePrefab = GetUserDefinedPrefab();
+                //consolePrefab = AssetDatabase.LoadAssetAtPath(consolePath, typeof(GameObject));
+            }
             Flush();
             if (consolePrefab != null)
             {
